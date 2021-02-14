@@ -1,3 +1,4 @@
+const axios = require("axios");
 class Busquedas {
 
     historial = ['Huaraz', 'Canada', 'Pariac'];
@@ -8,9 +9,12 @@ class Busquedas {
 
     async ciudad(lugar = '') {
         //peticion http
-        console.log(lugar);
 
-        return []; // Retornar lugares similares
+        const peticion = await axios.get('https://reqres.in/api/users?page=2');
+        console.log(peticion.data);
+
+
+        //return []; // Retornar lugares similares
     }
 }
 

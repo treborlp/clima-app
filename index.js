@@ -12,10 +12,9 @@ const main = async() => {
             case 1:
                 //Mostrar Mensaje
                 let lugar = await leerInput("Ciudad: ");
-                console.log({ lugar });
                 //Buscar lugares
-
-                //Seleccionar lugar
+                await busquedas.ciudad(lugar)
+                    //Seleccionar lugar
 
                 //Clima
 
