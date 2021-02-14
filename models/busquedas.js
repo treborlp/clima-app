@@ -9,7 +9,7 @@ class Busquedas {
 
     get paramsMaxbox() {
         return {
-            'access_token': 'pk.eyJ1IjoidHJlYm9ybHAiLCJhIjoiY2tsNGo4YXI5MHR0ZTJ2cDZpZXEyc29qdyJ9.4kEISb80PwvkahSw_jr70Q',
+            'access_token': process.env.MAPBOX_KEY,
             'limit': 5,
             'language': 'es'
         }

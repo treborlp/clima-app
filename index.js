@@ -1,5 +1,9 @@
+require('dotenv').config() //Para variables de entornos
+
 const { inquirerMenu, pausa, leerInput } = require("./helpers/Inquirer");
 const Busquedas = require("./models/busquedas");
+
+//console.log(process.env.MAPBOX_KEY); //ubicacion del key mapbox key
 
 const main = async() => {
     let opt;
