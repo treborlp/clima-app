@@ -24,9 +24,13 @@ class Busquedas {
             })
 
             const peticion = await instance.get();
-            console.log(peticion.data);
 
-            return []
+            return peticion.data.features.map(lugar => ({
+                id: lugar.id,
+                nombre: lugar.place_name,
+                lng: lugar.center[0],
+                lat: lugar.center[1]
+            }))
         } catch (error) {
             return []
         }
