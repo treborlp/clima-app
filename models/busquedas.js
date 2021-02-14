@@ -1,10 +1,15 @@
+const fs = require("fs")
+
 const axios = require("axios");
 class Busquedas {
 
-    historial = ['Huaraz', 'Canada', 'Pariac'];
+    historial = [];
+    pathDB = "./db/historial.json";
 
     constructor() {
-        //TODO: leer si existe en db
+        if (fs.existsSync(this.pathDB)) {
+            this.historial = this.leerDB().historial;
+        }
     }
 
     get paramsMaxbox() {
@@ -68,6 +73,24 @@ class Busquedas {
         } catch (error) {
 
         }
+    }
+
+    agregarHistorial(busqueda) {
+        if (!this.historial.includes(busqueda)) {
+            this.historial.unshift(busqueda); // Agregar la busqueda al arreglo
+        }
+        this.guardarBD();
+    }
+
+    guardarBD(busqueda) {
+        const payload = {
+            historial: this.historial
+        }
+        fs.writeFileSync(this.pathDB, JSON.stringify(payload))
+    }
+
+    leerDB() {
+        return JSON.parse(fs.readFileSync(this.pathDB, { encoding: "utf-8" }));
     }
 }
 
