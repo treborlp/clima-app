@@ -10,7 +10,7 @@ class Busquedas {
     async ciudad(lugar = '') {
         //peticion http
 
-        const peticion = await axios.get('https://reqres.in/api/users?page=2');
+        const peticion = await axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/Madrid.json?access_token=pk.eyJ1IjoidHJlYm9ybHAiLCJhIjoiY2tsNGo4YXI5MHR0ZTJ2cDZpZXEyc29qdyJ9.4kEISb80PwvkahSw_jr70Q&limit=5&language=es');
         console.log(peticion.data);
 
 
